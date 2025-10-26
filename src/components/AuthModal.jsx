@@ -25,7 +25,6 @@ export default function AuthModal({ open, onClose, onSubmit }) {
     e.preventDefault();
     if (!email || !password || (mode === 'register' && !name)) return;
     setLoading(true);
-    // Simulate server roundtrip
     setTimeout(() => {
       onSubmit({ name: name || 'Aspirant', email });
       setLoading(false);

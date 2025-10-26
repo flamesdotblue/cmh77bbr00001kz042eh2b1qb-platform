@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Courses from './components/Courses';
+import Testimonials from './components/Testimonials';
 import AuthModal from './components/AuthModal';
 import Footer from './components/Footer';
 
@@ -36,7 +37,6 @@ export default function App() {
         level: 'Beginner to Intermediate',
         hours: 180,
         features: ['Live + Recorded', 'Weekly tests', 'Mentor feedback'],
-        // Example Stripe Payment Link (replace with your live link)
         paymentLink: 'https://buy.stripe.com/test_eVa4jS6XG4uf0HyeUU',
       },
       {
@@ -69,10 +69,13 @@ export default function App() {
     <div className="min-h-screen bg-neutral-950 text-white antialiased">
       <Navbar onLogin={() => setAuthOpen(true)} onLogout={handleLogout} user={user} />
       <main>
-        <Hero onCTAClick={() => {
-          const el = document.getElementById('courses');
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }} />
+        <Hero
+          onCTAClick={() => {
+            const el = document.getElementById('courses');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+        />
+        <Testimonials />
         <Courses courses={courses} user={user} />
       </main>
       <Footer />

@@ -59,8 +59,17 @@ export default function Hero({ onCTAClick }) {
           animate="show"
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
         >
-          {[{ Icon: CreditCard, label: 'Secure checkout' }, { Icon: Star, label: 'Top-rated mentors' }, { Icon: Shield, label: 'Exam-focused' }, { Icon: BookOpen, label: 'Structured learning' }].map((f, idx) => (
-            <motion.div key={idx} className="flex items-center gap-2 rounded-md bg-white/5 px-3 py-2 text-sm text-neutral-300" variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
+          {[
+            { Icon: CreditCard, label: 'Secure checkout' },
+            { Icon: Star, label: 'Top-rated mentors' },
+            { Icon: Shield, label: 'Exam-focused' },
+            { Icon: BookOpen, label: 'Structured learning' },
+          ].map((f, idx) => (
+            <motion.div
+              key={idx}
+              className="flex items-center gap-2 rounded-md bg-white/5 px-3 py-2 text-sm text-neutral-300"
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+            >
               <f.Icon className="h-4 w-4 text-white" />
               {f.label}
             </motion.div>

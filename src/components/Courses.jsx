@@ -47,7 +47,6 @@ function CourseCard({ course, onEnroll }) {
 
 export default function Courses({ courses, user }) {
   const handleEnroll = (course) => {
-    // If you have a custom payment link per course, it will open in a new tab securely
     if (course.paymentLink) {
       window.open(course.paymentLink, '_blank', 'noopener,noreferrer');
     } else {
@@ -76,8 +75,19 @@ export default function Courses({ courses, user }) {
         </div>
 
         <div id="benefits" className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {[{ title: 'Clarity-first pedagogy', body: 'Crystal-clear concepts with exam relevance built into every class.' }, { title: 'Daily accountability', body: 'Live doubt rooms, progress trackers, and mentor nudges keep you moving.' }, { title: 'Smooth & secure payments', body: 'PCI-compliant checkout and instant access after purchase.' }].map((b, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.5, delay: i * 0.05 }} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          {[
+            { title: 'Clarity-first pedagogy', body: 'Crystal-clear concepts with exam relevance built into every class.' },
+            { title: 'Daily accountability', body: 'Live doubt rooms, progress trackers, and mentor nudges keep you moving.' },
+            { title: 'Smooth & secure payments', body: 'PCI-compliant checkout and instant access after purchase.' },
+          ].map((b, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+            >
               <div className="text-lg font-medium text-white">{b.title}</div>
               <p className="mt-2 text-sm text-neutral-300">{b.body}</p>
             </motion.div>
@@ -88,7 +98,7 @@ export default function Courses({ courses, user }) {
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div>
               <div className="text-2xl font-semibold">Hassle-free checkout</div>
-              <p className="mt-1 max-w-2xl text-sm text-neutral-300">We use secure payment links. You can replace them with your own Stripe Payment Links, Razorpay pages, or custom gateway whenever ready.</p>
+              <p className="mt-1 max-w-2xl text-sm text-neutral-300">We use secure payment links. Replace them with your own Stripe Payment Links, Razorpay pages, or a custom gateway anytime.</p>
             </div>
             <a
               href="https://dashboard.stripe.com/payments/links"
